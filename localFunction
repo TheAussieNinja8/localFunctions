@@ -1,9 +1,4 @@
 function fuel()
-    if turtle.getFuelLevel() < 10 then
-        print("REQUIRE FUEL")
-        shell.run("exit")
-    end
-
     while turtle.getFuelLevel() <100 do
         for i=1,16 do
             turtle.select(i)
@@ -12,6 +7,15 @@ function fuel()
         turtle.select(1)
         break
     end
+end
+
+functino needFuel()
+	while turtle.getFuelLeve() < 10 do
+		fuel(1)
+	else
+		print("REQUIRE FUEL")
+		exit()
+	end
 end
 
 
@@ -126,8 +130,22 @@ function digDownMoveDown(s)
     end
 end
 
-function bridge()
-    while not turtle.detectDown() do
+function place()
+    while not turtle.detect() do
+        turtle.place()
+    end
+end
+
+function placeUp()
+    while not turtle.detectUp() do
+        turtle.placeUp()
+    end
+end
+
+function placeDown()
+    while not turtle.detect() do
         turtle.placeDown()
     end
 end
+
+
