@@ -1,0 +1,133 @@
+function fuel()
+    if turtle.getFuelLevel() < 10 then
+        print("REQUIRE FUEL")
+        shell.run("exit")
+    end
+
+    while turtle.getFuelLevel() <100 do
+        for i=1,16 do
+            turtle.select(i)
+            turtle.refuel(2)
+        end
+        turtle.select(1)
+        break
+    end
+end
+
+
+function forward()
+    turtle.forward()
+end
+
+function back()
+    turtle.back()
+end
+
+function up()
+    turtle.up()
+end
+
+function down()
+    turtle.down()
+end
+
+function turnLeft()
+    turtle.turnLeft()
+end
+
+function turnRight()
+    turtle.turnRight()
+end
+
+function spin()
+    turtle.turnRight()
+    turtle.turnRight()
+end
+
+
+function dig()
+    while turtle.detect() do
+        turtle.dig()
+    end
+end
+
+function digUp()
+    while turtle.detectUp() do
+        turtle.digUp()
+    end
+end
+
+function digDown()
+    while turtle.detectDown() do
+        turtle.digDown()
+    end
+end
+
+function digUpDigDown(s)
+    for i=1,s,1 do
+        digUp(1)
+        digDown(1)
+    end
+end
+
+function digMoveForward(s)
+    for i=1,s,1 do
+        dig(1)
+        forward(1)
+    end
+end
+
+function digDigUp(s)
+    for i=1,s,1 do
+        dig(1)
+        digUp(1)
+    end
+end
+
+function digDigUpMoveUp(s)
+    for i=1,s,1 do
+        digDigUp(1)
+        up(1)
+    end
+end
+
+function digDigUpMoveUpDig(s)
+    for i=1,s,1 do
+        digDigUpMoveUp(1)
+        dig(1)
+    end
+end
+
+function digDigDown(s)
+    for i=1,s,1 do
+        dig(1)
+        digDown(1)
+    end
+end
+
+function digDigDownMoveDown(s)
+    for i=1,s,1 do
+        digDigDown(1)
+        down(1)
+    end
+end
+
+function digDigDownMoveDownDig(s)
+    for i=1,s,1 do
+        digDigDownMoveDown(1)
+        dig(1)
+    end
+end
+
+function digDownMoveDown(s)
+    for i=1,s,1 do
+        digDown(1)
+        down(1)
+    end
+end
+
+function bridge()
+    while not turtle.detectDown() do
+        turtle.placeDown()
+    end
+end
